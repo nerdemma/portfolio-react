@@ -1,116 +1,278 @@
 .hero {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    gap: 35px;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--nord0);
+  padding: 0 2rem;
 }
 
-.hero img {
-    margin-top: 100px;
-    width: min(300px, 40vw);
-    max-width: 100%;
-    aspect-ratio: 1/1;
-    height: auto;
-    display: block;
-    border-radius: 50%;
-    object-fit: cover;
+.terminal-container {
+  width: 100%;
+  max-width: 900px; /* Un poco más ancho para el layout de dos columnas */
+  background-color: var(--nord1);
+  border-radius: 8px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  border: 1px solid var(--nord3);
 }
 
-.hero h1 {
-    text-align: center;
-    width: 70%;
-    font-size: 70px;
-    font-weight: 600;
+.terminal-header {
+  background-color: var(--nord3);
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.terminal-buttons { display: flex; gap: 8px; }
+.terminal-buttons span { width: 12px; height: 12px; border-radius: 50%; }
+.close { background-color: #bf616a; }
+.minimize { background-color: #ebcb8b; }
+.maximize { background-color: #a3be8c; }
+
+.terminal-title {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  color: var(--nord4);
+  font-size: 0.8rem;
+  font-family: var(--font-mono);
+  pointer-events: none;
+}
+
+.terminal-body {
+  padding: 1.5rem 2rem;
+  font-family: var(--font-mono);
+  color: var(--nord4);
+}
+
+.prompt { color: var(--nord14); font-weight: bold; }
+.cursor { animation: blink 1s infinite; color: var(--nord8); }
+
+/* Nuevo Layout de dos columnas */
+.terminal-content-layout {
+  display: grid;
+  grid-template-columns: 1fr 250px; /* Columna de texto + Columna de foto fija */
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.terminal-output-text h1 { font-size: 2.2rem; margin: 0 0 0.5rem; color: var(--nord4); }
+.role-title { color: var(--nord8); font-size: 1.1rem; margin-bottom: 1rem; }
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+  margin-bottom: 1.5rem;
+  border-left: 2px solid var(--nord3);
+  padding-left: 15px;
+}
+
+.stat-label { color: var(--nord3); font-size: 0.8rem; margin-right: 10px; }
+.stat-value { color: var(--nord4); font-size: 0.9rem; }
+
+.hero-description { line-height: 1.6; color: var(--nord4); opacity: 0.9; margin-bottom: 2rem; font-size: 0.9rem; }
+
+.terminal-actions { display: flex; gap: 15px; }
+
+.btn-terminal {
+  text-decoration: none;
+  color: var(--nord8);
+  border: 1px solid var(--nord8);
+  padding: 8px 15px;
+  border-radius: 4px;
+  transition: 0.3s;
+  font-size: 0.8rem;
+}
+
+.btn-terminal:hover { background-color: var(--nord8); color: var(--nord0); }
+.btn-terminal.secondary { color: var(--nord14); border-color: var(--nord14); }
+.btn-terminal.secondary:hover { background-color: var(--nord14); color: var(--nord0); }
+
+/* --- EFECTO DE FOTO 90s --- */
+.terminal-output-photo {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.photo-wrapper {
+  width: 100%;
+  max-width: 250px;
+  height: 250px;
+  overflow: hidden;
+  border-radius: 4px;
+  position: relative;
+  background-color: #000; /* Fondo negro mientras carga */
+  border: 2px solid var(--nord3);
+}
+
+.profile-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Asegura que la foto cubra el contenedor */
+  
+  /* Lógica del Efecto: Empezamos desenfocado y escalado */
+  filter: blur(25px) brightness(0.7); /* Mucho blur simula pixelado */
+  transform: scale(1.1); /* Un poco de escala ayuda al efecto */
+  
+  /* Animación: retraso de 0.5s para empezar después de que aparece el texto */
+  animation: modemDecode 3s ease-in-out 0.5s forwards;
+}
+
+/* Efecto scanline opcional de monitor CRT viejo */
+.scanline-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 50%,
+    rgba(0, 0, 0, 0.1) 50%
+  );
+  background-size: 100% 4px;
+  pointer-events: none; /* No interfiere con clics */
+  opacity: 0.5;
 }
 
 
-.hero span {
-    background: linear-gradient(270deg, #DF8908 10%, #B415FF 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 
+/* Layout del contenido una vez cargado */
+.terminal-content {
+  display: flex;
+  gap: 30px;
+  margin-top: 25px;
+  animation: fadeIn 0.5s ease-out;
 }
 
-.hero p {
-    width: 50%;
-    text-align: center;
-    font-size: 24px;
-    line-height: 40px;
-
+/* Contenedor de la foto */
+.profile-photo-container {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  min-width: 180px;
+  border: 1px solid var(--nord3);
+  background: #000;
+  overflow: hidden;
 }
 
-.hero-action {
-
-    display: flex;
-    align-items: center;
-    gap: 25px;
-    font-size: 20px;
-    font-weight: 500;
-    margin-bottom: 50px;
+/* El efecto de aclarado (Blur a Nítido) */
+.pixel-to-clear {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  
+  /* Estado inicial: muy borroso (parece pixelado) y oscuro */
+  filter: blur(20px) brightness(0.5);
+  opacity: 0;
+  
+  /* Animación: dura 3 segundos para dar ese aire retro */
+  animation: clearImage 3s steps(8) forwards; 
+  /* "steps(10)" hace que no sea fluido, sino que cargue por tramos, como en los 90s */
 }
 
-.hero-connect {
-    padding: 25px 45px;
-    border-radius: 50px;
-    background: linear-gradient(264deg, #DF8908 -5.09%, #B415FF 106.28%);
-    cursor: pointer;
-    
+/* Efecto de líneas de monitor viejo (Scanlines) */
+.scanlines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0) 50%,
+      rgba(0, 0, 0, 0.2) 50%
+  );
+  background-size: 100% 4px;
+  pointer-events: none;
 }
 
-.hero-resume {
-    padding: 25px 75px;
-    border-radius: 50px;
-    border: 2px solid #FFF;
-    cursor: pointer;
-    
+/* La animación del "módem" */
+@keyframes clearImage {
+  0% {
+      filter: blur(20px) brightness(0.5);
+      opacity: 0;
+  }
+  10% {
+      opacity: 1;
+  }
+  50% {
+      filter: blur(8px) brightness(0.8);
+  }
+  100% {
+      filter: blur(0px) brightness(1);
+      opacity: 1;
+  }
 }
 
-.hero-connect:hover {
-    border: 2px solid #FFF;
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.hero-resume:hover {
-    border-color: #B415FF;
-
+/* Responsive: Foto arriba en móviles */
+@media (max-width: 768px) {
+  .terminal-content {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+  }
+  
+  .profile-photo-container {
+      width: 150px;
+      height: 150px;
+      min-width: 150px;
+  }
 }
 
 
-@media (max-width:768px) {
-    .profile-img {
-        margin-top: 50px;
-        width: 200px
-    }
 
-    .hero h1 {
-        margin-top: 10px;
-        width: 90%;
-        font-size: 35px
-    }
+/* --- ANIMACIONES --- */
+@keyframes blink { 50% { opacity: 0; } }
 
-    hero p {
-        width: 80%;
-        font-size: 16px;
-        line-height: 25px;
-        margin: 5px 0
-    }
-
-    .hero-action {
-        gap: 10px;
-        font-weight: 500;
-        margin-bottom: 50px
-    }
-
-    .hero-connect {
-        padding: 20px;
-        border-radius: 40px;
-        font-size: 14px;
-
-    }
-    .hero-resume{
-        padding: 18 30px;
-        border-radius: 40px;
-        font-size: 14px;
-    }
-
+/* Simulación de decodificación progresiva */
+@keyframes modemDecode {
+  0% {
+    filter: blur(25px) brightness(0.7);
+    transform: scale(1.1);
+  }
+  20% {
+    filter: blur(15px) brightness(0.8);
+    transform: scale(1.08);
+  }
+  50% {
+    filter: blur(8px) brightness(1); /* Punto medio, empieza a verse */
+    transform: scale(1.05);
+  }
+  80% {
+    filter: blur(2px) brightness(1.1); /* Casi nítido, un poco de brillo extra */
+    transform: scale(1.02);
+  }
+  100% {
+    filter: blur(0px) brightness(1); /* 100% nítido y tamaño original */
+    transform: scale(1);
+  }
 }
+
+/* Responsividad */
+@media (max-width: 850px) {
+  .terminal-content-layout {
+    grid-template-columns: 1fr; /* Una columna en móvil */
+    gap: 1.5rem;
+  }
+  
+  .terminal-output-photo {
+    order: -1; /* Foto primero en móvil */
+    justify-content: flex-start;
+  }
+  
+  .terminal-output-text h1 { font-size: 1.8rem; }
+  .terminal-actions { flex-direction: column; }
+}
+
+

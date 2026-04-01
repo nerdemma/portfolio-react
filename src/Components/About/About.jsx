@@ -1,60 +1,83 @@
 import React from 'react';
-import './About.css'
-import theme_patern from '../../assets/theme_pattern.svg'
-import profile_img from '../../assets/emmanueldbreyaue.png'
+import './About.css';
 
 const About = () => {
-    return (
-        <div id='about' className="about">
-            <div className="about-title">
-                <h1>About me</h1><img src={theme_patern} alt="" />
+  return (
+    <section id="about" className="about-section">
+      <div className="about-wrapper">
+        <header className="about-header">
+          <span className="man-cmd">MAN(7)</span>
+          <span className="man-title">PERFIL PROFESIONAL</span>
+          <span className="man-cmd">MAN(7)</span>
+        </header>
+
+        <div className="about-content">
+          <section className="about-block">
+            <h3>NOMBRE</h3>
+            <p>Emmanuel David Breyaue — Backend Developer & DevOps Engineer</p>
+          </section>
+
+          <section className="about-block">
+            <h3>SINOPSIS</h3>
+            <p>
+              Especialista en infraestructura y desarrollo con más de 6 años de experiencia 
+              en el sector IT. Estudiante de Ingeniería en Telecomunicaciones (UNSAM) y 
+              Programación (UTN). Enfocado en la eficiencia de sistemas Unix-like y 
+              arquitecturas backend robustas.
+            </p>
+          </section>
+
+          <section className="about-block">
+            <h3>HISTORIAL_EJECUCION (2020-2026)</h3>
+            <div className="experience-log">
+              <div className="log-entry">
+                <span className="log-date">[2026-PRESENT]</span>
+                <span className="log-task">Técnico de Campo @ Nixon Net</span>
+                <p>Infraestructura de red y soporte técnico especializado.</p>
+              </div>
+              <div className="log-entry">
+                <span className="log-date">[2024-2026]</span>
+                <span className="log-task">IT Support Specialist @ Aprego</span>
+                <p>Administración de sistemas y soporte Nivel 1/2.</p>
+              </div>
+              <div className="log-entry">
+                <span className="log-date">[2023-2024]</span>
+                <span className="log-task">IT Support @ CAT Technologies</span>
+                <p>Gestión de infraestructura para cuentas de Telecom Argentina.</p>
+              </div>
             </div>
-            <div className="about-sections">
-                <div className="about-left">
-                    <img src={profile_img} alt="" />
-                </div>
-                <div className="about-right">
-                    <div className="about-para">
-                        <p>Im an experienced Software Engineer with over 5 years</p>
-                        <p>My passion with the hight technology, is only improve my potencital to found the best solution for their buissnes.</p>
-                    </div>
-                    <div className="about-skills">
+          </section>
 
-                        <div className="about-skill"><p>HTML & CSS</p><hr style={{ width: "80%" }} /></div>
-                        <div className="about-skill"><p>Javascript</p><hr style={{ width: "60%" }} /></div>
-                        <div className="about-skill"><p>React</p><hr style={{ width: "70%" }} /></div>
-                        <div className="about-skill"><p>Java</p><hr style={{ width: "50%" }} /></div>
-                        <div className="about-skill"><p>Docker</p><hr style={{ width: "80%" }} /></div>
-                        <div className="about-skill"><p>Spring</p><hr style={{ width: "65%" }} /></div>
-                        <div className="about-skill"><p>SQL</p><hr style={{ width: "55%" }} /></div>
-
-
-                    </div>
-
-
-                </div>
+          <section className="about-block">
+            <h3>STACK_TECNOLOGICO</h3>
+            <div className="stack-grid">
+              <div className="stack-col">
+                <h4>LANGUAGES</h4>
+                <ul>
+                  <li>C / C++ (Low-level optimization)</li>
+                  <li>Bash / Shell Scripting</li>
+                  <li>JavaScript (React / Node.js)</li>
+                </ul>
+              </div>
+              <div className="stack-col">
+                <h4>INFRA & OS</h4>
+                <ul>
+                  <li>OpenBSD / FreeBSD / Debian</li>
+                  <li>Docker / CI/CD Pipelines</li>
+                  <li>Networking & SysAdmin</li>
+                </ul>
+              </div>
             </div>
-            <div className="about-achievements">
-                <div className="about-achivement">
-                    <h1>5+</h1>
-                    <p>YEARS OF EXPERIENCIE</p>
-                </div>
-                <hr />
+          </section>
+        </div>
 
-                <div className="about-achivement">
-                    <h1>30+</h1>
-                    <p>PROYECTS COMPLETED</p>
-                </div>
-                <hr />
-                <div className="about-achivement">
-                    <h1>20+</h1>
-                    <p>HAPPY CLIENTS</p>
-                </div>
-            </div>
+        <footer className="about-footer">
+          <span>EB_SYS v2.0.26</span>
+          <span>Página 1</span>
+        </footer>
+      </div>
+    </section>
+  );
+};
 
-
-        </div >
-    )
-
-}
-export default About
+export default About;

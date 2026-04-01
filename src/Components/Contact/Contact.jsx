@@ -1,59 +1,67 @@
-import React from 'react'
-import './Contact.css'
-import theme_pattern from '../../assets/theme_pattern.svg'
-import mail_icon from '../../assets/mail_icon.svg'
-import call_icon from '../../assets/call_icon.svg'
-import location_icon from '../../assets/location_icon.svg'
+import React from 'react';
+import './Contact.css';
 
 const Contact = () => {
+    const onSubmit = async (event) => {
+        event.preventDefault();
+        // Aquí iría tu lógica de envío a la API
+        console.log("Enviando paquete a la API...");
+    };
+
     return (
-        <div id='contact' className="contact">
-            <div className="contact-title">
-                <h1>Get in Touch</h1>
-                <img src={theme_pattern} alt="" />
+        <section id='contact' className="contact-section">
+            <div className="contact-header">
+                <h1 className="terminal-cmd">ssh-connect --to "ebreyaue"</h1>
+                <div className="header-underline"></div>
             </div>
 
-            <div className="contact-section">
-                <div className="contact-left">
-                    <h1>Let's talk</h1>
-                    <p>
-                        Im currently available to take on a new projects, so feel free to send me a mesage about anything
-                        that you want me to work on. You can contact anytime.
-
+            <div className="contact-layout">
+                <div className="contact-info">
+                    <h2 className="info-title">SOPORTE_Y_CONSULTAS</h2>
+                    <p className="info-desc">
+                        Actualmente disponible para nuevos desafíos técnicos, despliegues de infraestructura 
+                        o desarrollo backend. Si tienes un proyecto en mente, abre un socket de comunicación:
                     </p>
+                    
                     <div className="contact-details">
-                        <div className="contact-detail">
-                            <img src={mail_icon} alt="" />
-                            <p>hello@emmanuelbreyaue.com</p>
+                        <div className="contact-item">
+                            <span className="icon">📧</span>
+                            <p><span>MAIL:</span> hello@ebreyaue.sys</p>
                         </div>
-                        <div className="contact-detail">
-                            <img src={call_icon} alt="" />
-                            <p>+54-911-3830-1117</p>
+                        <div className="contact-item">
+                            <span className="icon">📞</span>
+                            <p><span>TEL:</span> +54-11-3830-1117</p>
                         </div>
-                        <div className="contact-detail">
-                            <img src={location_icon} alt="" />
-                            <p>Buenos Aires, Argentina</p>
+                        <div className="contact-item">
+                            <span className="icon">📍</span>
+                            <p><span>LOC:</span> Buenos Aires, AR</p>
                         </div>
-
                     </div>
                 </div>
 
-                <form action="" className='contact-right'>
-                    <label htmlFor="">Name</label>
-                    <input type="text" placeholder='Enter your name' name='name' />
+                <form onSubmit={onSubmit} className='contact-form'>
+                    <div className="input-group">
+                        <label htmlFor="name">IDENTIDAD_ORIGEN</label>
+                        <input id="name" type="text" placeholder='Tu nombre o empresa' name='name' required />
+                    </div>
 
-                    <label htmlFor="">Email</label>
-                    <input type="text" placeholder='Enter your email' name='email' />
+                    <div className="input-group">
+                        <label htmlFor="email">SOCKET_RETORNO</label>
+                        <input id="email" type="email" placeholder='tu-email@dominio.com' name='email' required />
+                    </div>
 
-                    <label htmlFor="">Write your message here</label>
-                    <textarea name="message" rows="8" placeholder="Enter your message"></textarea>
-                    <button className="contact-submit">Submit Now</button>
-
+                    <div className="input-group">
+                        <label htmlFor="message">CARGA_UTIL (MESSAGE)</label>
+                        <textarea id="message" name="message" rows="6" placeholder="Escribe tu mensaje técnico o propuesta..."></textarea>
+                    </div>
+                    
+                    <button type="submit" className="contact-submit">
+                        POST /send_message HTTP/1.1
+                    </button>
                 </form>
             </div>
-        </div>
+        </section>
+    );
+};
 
-    )
-
-}
-export default Contact
+export default Contact;

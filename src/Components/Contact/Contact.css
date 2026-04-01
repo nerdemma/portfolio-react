@@ -1,125 +1,113 @@
-.contact {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
+.contact-section {
+    padding: 80px 10%;
+    background-color: #2e3440; /* Nord0 */
+    color: #d8dee9; /* Nord4 */
+}
+
+.contact-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.header-underline {
+    width: 80px;
+    height: 3px;
+    background: #a3be8c; /* Nord14 */
+    margin: 10px auto;
+}
+
+.contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 80px;
-    justify-content: center;
-    margin: 80px 170px;
 }
 
-.contact-left {
-    display: left;
-    flex-basis: 40%;
-    flex-direction: column;
-    gap: 30px;
+/* Columna Izquierda */
+.info-title {
+    color: #eceff4;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
 }
 
-.contact-left h1 {
-    font-size: 50px;
-    font-weight: 700;
-    
-    background: linear-gradient(270deg, #df8998 80%, #b415ff 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    
-}
-
-.contact-left p {
-    color: #d8d8d8;
-    font-size: 20px;
-    line-height: 35px;
-    max-width: 500px;
+.info-desc {
+    line-height: 1.6;
+    color: #d8dee9;
+    margin-bottom: 30px;
+    font-size: 0.95rem;
 }
 
 .contact-details {
-    color: #d8d8d8;
     display: flex;
     flex-direction: column;
-    font-size: 22px;
-    gap: 25px;
+    gap: 20px;
 }
 
-.contact-detail {
+.contact-item {
+    display: flex;
     align-items: center;
+    gap: 15px;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9rem;
+}
+
+.contact-item .icon { font-size: 1.2rem; }
+.contact-item span { color: #81a1c1; font-weight: bold; }
+
+/* Formulario Estilo Terminal */
+.contact-form {
     display: flex;
-    gap: 18px;
-}
-
-.contact-title h1 {
-    font-size: 80px;
-    font-weight: 600;
-    padding: 0px 30px;
-}
-
-.contact-title {
-    position: relative;
-}
-
-.contact-title img {
-    bottom: 0;
-    position: absolute;
-    right: 0;
-    z-index: -1;
-}
-
-.contact-right {
-    display: flex; 
     flex-direction: column;
-    align-items: start;
-    gap: 30px;
-
+    gap: 20px;
 }
 
-.contact-right label {
-    font: #D8D8D8;
-    font-size: 22px;
-    font-weight: 500;
-}
-
-.contact-section {
+.input-group {
     display: flex;
-    gap: 150px;
-
+    flex-direction: column;
+    gap: 8px;
 }
 
-.contact-right input {
-    border: none;
-    width: 700px;
-    height: 78px;
-    padding-left: 20px;
-    border-radius: 4px;
-    background: #32323c;
-    color: #A0A0A0;
-    font-family: Outfit;
-    font-size: 20px;
+.input-group label {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.8rem;
+    color: #a3be8c; /* Verde Nord */
 }
 
-.contact-right textarea {
-    width: 650px;
-    border: none;
-    padding: 25px;
+.input-group input, .input-group textarea {
+    background-color: #3b4252; /* Nord1 */
+    border: 1px solid #4c566a; /* Nord3 */
     border-radius: 4px;
-    background: #32323c;
-    color: #A0A0A0;
-    font-size: 20px;
-    font-family: Outfit;
+    padding: 15px;
+    color: #eceff4;
+    font-family: inherit;
+    transition: 0.3s;
+}
+
+.input-group input:focus, .input-group textarea:focus {
+    outline: none;
+    border-color: #88c0d0; /* Nord8 */
+    box-shadow: 0 0 10px rgba(136, 192, 208, 0.2);
 }
 
 .contact-submit {
-    border: none;
-    color: white;
-    border-radius: 50px;
-    background: linear-gradient(264deg, #DF8908 -5.09%, #b415ff 100%);
-    font-size:22px;
-    padding: 20px 60px;
-    margin-bottom:50px;
+    margin-top: 10px;
+    padding: 15px;
+    background: transparent;
+    border: 2px solid #88c0d0;
+    color: #88c0d0;
+    font-family: 'Fira Code', monospace;
+    font-weight: 700;
     cursor: pointer;
-    transition: .3s;
+    transition: 0.3s;
+    text-transform: uppercase;
 }
 
-.contact-submit:hover{
+.contact-submit:hover {
+    background: #88c0d0;
+    color: #2e3440;
+    box-shadow: 0 0 20px rgba(136, 192, 208, 0.4);
+}
 
-    transform:scale(1.1);
-    transition:.3s;
+@media (max-width: 900px) {
+    .contact-layout { grid-template-columns: 1fr; gap: 50px; }
+    .contact-section { padding: 60px 6%; }
 }

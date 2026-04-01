@@ -1,105 +1,123 @@
-.navbar {
+  
+  .navbar {
+    width: 100%;
+    height: var(--nav-h);
+    background:rgba(46, 52, 64, 0.95); /* Nord0 con transparencia */
+    backdrop-filter: blur(10px); /* Efecto moderno */
+    border-bottom: 1px solid var(--nord1);
+    position: fixed;
+    top: 0;
+    z-index: 9999;
+  }
+  
+  .nav-container {
+    max-width: 1200px;
+    height: 100%;
+    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 20px 170px;
-}
-
-.nav-menu {
-    display: flex;
-    align-items: center;
-    list-style: none;
-    gap: 60px;
-    font-size: 18px;
-}
-
-.nav-menu li{
-    display:flex;
-    flex-direction: column;
-    gap:5;
-    cursor:pointer;
-}
-
-
-.nav-menu img {
-    display: flex;
-    margin: auto;
-}
-
-
-.nav-connect {
-    padding: 20px 40px;
-    border-radius: 50px;
-    background: linear-gradient(267deg, #DA7C25 0.36%, #B923E1 102.06%);
-    font-size: 18px;
-    cursor: pointer;
-    transition: 0.5s;
-}
-
-
-.nav-connect:hover {
-    transform: scale(1.05);
-
-}
-.logo {
-    width: 100px;
-}
-
-
-.anchor-link {
+    padding: 0 2rem;
+  }
+  
+  .logo-text, .nav-logo a {
+    font-family: --sans, 'Consolas', monospace; /* Estilo código */
+    font-weight: 700;
+    color: var(--nord4);
     text-decoration: none;
-    color: #FFF;
-}
-
-.nav-mob-close {
-    display: none;
+    font-size: 1.2rem;
+  }
+  
+  .nav-logo span { color: var(--nord8); }
+  
+  .nav-menu {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  
+  .nav-item {
+    text-decoration: none;
+    color: var(--nord4);
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: 0.2s;
+    opacity: 0.7;
+  }
+  
+  .nav-item:hover, .nav-item.active {
+    opacity: 1;
+    color: var(--nord8);
+  }
+  
+  /* Botón estilo "Terminal" */
+  .btn-nord {
+    background: transparent;
+    border: 1px solid var(--nord8);
+    color: var(--nord8);
+    padding: 0.5rem 1rem;
+    font-family: monospace;
     cursor: pointer;
-}
-
-.nav-mob-open {
+    transition: 0.3s;
+  }
+  
+  .btn-nord:hover {
+    background: rgba(136, 192, 208, 0.1);
+    box-shadow: 0 0 15px rgba(136, 192, 208, 0.2);
+  }
+  
+  /* Mobile Toggle - JS Puro */
+  .nav-toggle {
     display: none;
-    cursor: pointer;
+    background: none;
+    border: none;
     width: 30px;
-}
-
-@media (max-width:768px) {
-    .navbar {
-        margin: 20px 6%
+    height: 30px;
+    position: relative;
+  }
+  
+  .hamburger, .hamburger::before, .hamburger::after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: var(--nord8);
+    position: absolute;
+    transition: 0.3s;
+  }
+  
+  .hamburger { top: 50%; transform: translateY(-50%); }
+  .hamburger::before { top: -8px; }
+  .hamburger::after { bottom: -8px; }
+  
+  .nav-toggle.open .hamburger { background: transparent; }
+  .nav-toggle.open .hamburger::before { transform: rotate(45deg) translateY(11px); }
+  .nav-toggle.open .hamburger::after { transform: rotate(-45deg) translateY(-11px); }
+  
+  @media (max-width: 768px) {
+    .nav-toggle { display: block; z-index: 10001; }
+    .nav-desktop-action { display: none; }
+  
+    .nav-content {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 100%;
+      height: 100vh;
+      background: var(--nord0);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      transition: 0.4s cubic-bezier(0.77, 0, 0.175, 1);
     }
-
-    .nav-connect {
-        display: none;
+  
+    .nav-open { right: 0; }
+  
+    .nav-menu {
+      flex-direction: column;
+      align-items: center;
+      gap: 3rem;
     }
-
-    .nav-mob-close {
-        display: block;
-        position: absolute;
-        top: 30px;
-        right: 7%;
-        width: 30px;
-    }
-
-    .navbar ul {
-        position: fixed;
-        flex-direction: column;
-        align-items: start;
-        top: 0;
-        gap: 30px;
-        background-color: #1f0016;
-        width:300px;
-        height:100%;
-        z-index:2;
-        transition: right .5s;
-        right:-300px;
-        padding-top:100px
-
-
-    }
-.nav-menu li{
-    font-size:22px;
-    padding-left:50px;
-    flex-direction:row;
-    gap:20px;
-}
-
-}
+  
+    .nav-item { font-size: 1.2rem; }
+  }

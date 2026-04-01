@@ -1,80 +1,105 @@
-import React, { useState } from 'react'
-import './Navbar.css'
-import logo from '../../assets/logo.svg'
-import underline from '../../assets/nav_underline.svg'
-import AnchorLink from 'react-anchor-link-smooth-scroll'
-
+import React, { useState, useEffect } from 'react';
+import './Navbar.css';
 
 const navItems = [
-  { id: "home", label: "Home" },
-  { id: "about", label: "About Me" },
-  { id: "services", label: "Services" },
-  { id: "mywork", label: "My Work" },
-  { id: "contact", label: "Contact" },
+  { id: "home", label: "INICIO" },
+  { id: "about", label: "PERFIL" },
+  { id: "services", label: "SERVICIOS" },
+  { id: "mywork", label: "PROYECTOS" },
+  { id: "contact", label: "CONTACTO" },
 ];
 
-function Navbar() {
-  const [menu, setMenu] = useState("home");
+const Navbar = () => {
+  const [active, setActive] = useState("home");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  // JS PURO: Manejo de Scroll Suave y Observación de Secciones
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '-50% 0px -50% 0px', // Detecta cuando la sección está en el centro
+      threshold: 0
+    };
 
-  const contactId = 'contact';
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActive(entry.target.id);
+        }
+      });
+    };
 
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    
+    // Observar cada sección que coincida con los IDs del nav
+    navItems.forEach((item) => {
+      const el = document.getElementById(item.id);
+      if (el) observer.observe(el);
+    });
 
-  const handleConnectClick = () => {
+    return () => observer.disconnect();
+  }, []);
 
-    setMenu(contactId);
-
-
-    const targetElement = document.getElementById(contactId);
-    if (targetElement) {
-
-      const offset = 50;
-      const elementPosition = targetElement.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.scrollY - offset;
+  // JS PURO: Función de Scroll Suave manual
+  const scrollToSection = (e, id) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      const offset = 80; // Altura del navbar
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
 
       window.scrollTo({
         top: offsetPosition,
         behavior: 'smooth'
       });
-
-
-      window.history.pushState(null, null, `#${contactId}`);
     }
+    setIsMenuOpen(false);
   };
 
-
   return (
-    <div className='navbar'>
-      <img src={logo} alt="" />
-      <ul className="nav-menu">
-        {navItems.map((item) => (
+    <header className="navbar">
+      <div className="nav-container">
+        <div className="nav-logo">
+          <a href="#home" onClick={(e) => scrollToSection(e, "home")}>
+            emmanueld.<span>breyaue</span>
+          </a>
+        </div>
 
-          <li key={item.id}>
-            <AnchorLink
-              className={`anchor-link ${menu === item.id ? 'active' : ''}`}
-              offset={50}
-              href={`#${item.id}`}
-              onClick={() => setMenu(item.id)}
-              aria-current={menu === item.id ? 'page' : undefined}
-            >
-              {item.label}
-              {menu === item.id && <img src={underline} alt="Sección activa" />}
-            </AnchorLink>
-          </li>
-        ))}
-      </ul>
+        <button 
+          className={`nav-toggle ${isMenuOpen ? 'open' : ''}`} 
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label="Menu"
+        >
+          <div className="hamburger"></div>
+        </button>
 
+        <nav className={`nav-content ${isMenuOpen ? 'nav-open' : ''}`}>
+          <ul className="nav-menu">
+            {navItems.map((item) => (
+              <li key={item.id}>
+                <a
+                  href={`#${item.id}`}
+                  className={`nav-item ${active === item.id ? 'active' : ''}`}
+                  onClick={(e) => scrollToSection(e, item.id)}
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
-      <div
-        className={`nav-connect ${menu === contactId ? 'active' : ''}`}
-        onClick={handleConnectClick}
-        role="link"
-        tabIndex={0}
-      >
-        Connect with me
+        <div className="nav-desktop-action">
+          <button className="btn-nord" onClick={(e) => scrollToSection(e, "contact")}>
+            CONTACTO
+          </button>
+        </div>
       </div>
-
-    </div>
+    </header>
   );
-}
-export default Navbar
+};
+
+export default Navbar;

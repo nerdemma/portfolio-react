@@ -1,71 +1,143 @@
-.mywork {
+.mywork-section {
+    padding: 80px 10%;
+    background-color: #2e3440; /* Nord0 */
+    color: #d8dee9; /* Nord4 */
+}
+
+.mywork-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+
+
+.header-line {
+    width: 60px;
+    height: 3px;
+    background: #a3be8c; /* Nord14 - Verde */
+    margin: 10px auto;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+}
+
+/* Tarjeta estilo Repositorio */
+.project-repo-card {
+    background-color: #3b4252; /* Nord1 */
+    border: 1px solid #4c566a; /* Nord3 */
+    border-radius: 6px;
+    padding: 20px;
+    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     flex-direction: column;
+}
+
+.project-repo-card:hover {
+    transform: translateY(-5px);
+    border-color: #81a1c1; /* Nord9 */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.repo-header {
+    display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 80px;
-    margin: 80px 170px;
+    gap: 12px;
+    margin-bottom: 15px;
 }
 
-.mywork-title {
-    position: relative;
+.repo-icon { font-size: 1.2rem; }
+
+.repo-name {
+    font-size: 1.1rem;
+    color: #eceff4; /* Nord6 */
+    font-family: 'Fira Code', monospace;
 }
 
-.mywork-title h1 {
-    padding: 0px 30px;
-    font-size: 80px;
-    font-weight: 600;
+.project-img-preview {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    filter: grayscale(40%);
+    transition: 0.3s;
 }
 
-.mywork-title img {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    border-radius: 10px;
-    z-index: -1;
+.project-repo-card:hover .project-img-preview {
+    filter: grayscale(0%);
 }
 
-.mywork-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 40px;
-
+.repo-desc {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    height: 45px; /* Altura fija para alineación */
+    overflow: hidden;
 }
 
-.mywork-container img {
-    box-sizing: border-box;
-    width: 419px;
-    height: 280px;
-    transition:.3s;
-    cursor:pointer;
+/* Tags de tecnología */
+.repo-tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
 }
 
-
-
-.mywork-container img:hover{
-    transform:scale(1.10);
-    transition: .3s;
+.tech-tag {
+    font-size: 0.7rem;
+    padding: 3px 8px;
+    background: #2e3440;
+    color: #88c0d0;
+    border: 1px solid #4c566a;
+    border-radius: 12px;
+    font-family: monospace;
 }
 
-.mywork-showmore
-{
-    display:flex;
-    gap:15px;
-    border-radius:50px;
-    border: 2px solid white;
-    padding: 30px 60px;
-    font-size: 22px;
-    font-weight: 500;
-    margin-bottom: 80px;
-    transition: .6s;
-    cursor:pointer;
-
+/* Footer de la tarjeta */
+.repo-footer {
+    margin-top: auto;
+    padding-top: 15px;
+    border-top: 1px solid #4c566a;
 }
 
-.mywork-showmore:hover
-{
-    gap:30px;
-    transition:.6s;
-    
+.view-code {
+    text-decoration: none;
+    color: #ebcb8b; /* Nord13 - Amarillo */
+    font-size: 0.85rem;
+    font-family: 'Fira Code', monospace;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
 
+.git-branch { color: #81a1c1; }
+
+/* Botón de carga global */
+.show-more-wrapper {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.btn-git-load {
+    background: transparent;
+    border: 1px solid #d8dee9;
+    color: #d8dee9;
+    padding: 12px 25px;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-git-load:hover {
+    background: #d8dee9;
+    color: #2e3440;
+}
+
+@media (max-width: 768px) {
+    .projects-grid { grid-template-columns: 1fr; }
+    .mywork-section { padding: 60px 5%; }
 }
