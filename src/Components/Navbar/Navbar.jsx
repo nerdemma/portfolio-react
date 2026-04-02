@@ -64,7 +64,7 @@ const Navbar = () => {
       <div className="nav-container">
         <div className="nav-logo">
           <a href="#home" onClick={(e) => scrollToSection(e, "home")}>
-            emmanueld.<span>breyaue</span>
+            emmanuelbreyaue<span>.com</span>
           </a>
         </div>
 

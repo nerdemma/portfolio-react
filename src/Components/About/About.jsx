@@ -14,48 +14,52 @@ const About = () => {
         <div className="about-content">
           <section className="about-block">
             <h3>NOMBRE</h3>
-            <p>Emmanuel David Breyaue — Backend Developer & DevOps Engineer</p>
+            <p>Emmanuel David Breyaue — Infrastructure Analyst & DevOps Engineer</p>
           </section>
 
           <section className="about-block">
             <h3>SINOPSIS</h3>
             <p>
-              Especialista en infraestructura y desarrollo con más de 6 años de experiencia 
-              en el sector IT. Estudiante de Ingeniería en Telecomunicaciones (UNSAM) y 
-              Programación (UTN). Enfocado en la eficiencia de sistemas Unix-like y 
-              arquitecturas backend robustas.
+  Infrastructure Analyst & Unix Specialist. +6 años gestionando entornos críticos, redes y automatización de sistemas para maximizar la eficiencia operativa
             </p>
           </section>
 
-          <section className="about-block">
-            <h3>HISTORIAL_EJECUCION (2020-2026)</h3>
-            <div className="experience-log">
-              <div className="log-entry">
-                <span className="log-date">[2026-PRESENT]</span>
-                <span className="log-task">Técnico de Campo @ Nixon Net</span>
-                <p>Infraestructura de red y soporte técnico especializado.</p>
-              </div>
-              <div className="log-entry">
-                <span className="log-date">[2024-2026]</span>
-                <span className="log-task">IT Support Specialist @ Aprego</span>
-                <p>Administración de sistemas y soporte Nivel 1/2.</p>
-              </div>
-              <div className="log-entry">
-                <span className="log-date">[2023-2024]</span>
-                <span className="log-task">IT Support @ CAT Technologies</span>
-                <p>Gestión de infraestructura para cuentas de Telecom Argentina.</p>
-              </div>
-            </div>
-          </section>
+	<section className="about-block">
+  <h3>EXPERIENCIA LABORAL (2018-2026)</h3>
+  <div className="experience-log">
+
+    <div className="log-entry">
+      <span className="log-date">[2024-PRESENTE]</span>
+      <span className="log-task">Infrastructure Support @ Aprego</span>
+      <p>Soporte L2 en entornos Microsoft 365 y networking.</p>
+      <p>Automatización de despliegues con PowerShell y optimización de SLAs empresariales.</p>
+    </div>
+
+    <div className="log-entry">
+      <span className="log-date">[2019-2024]</span>
+      <span className="log-task">IT Support Specialist (L2/L3) @ Contractor</span>
+      <p>Administración de Active Directory y resolución de incidentes complejos en ServiceNow.</p>
+      <p>Logro: Reducción del 40% en tiempos operativos mediante scripting en Python.</p>
+    </div>
+
+    <div className="log-entry">
+      <span className="log-date">[2018-2019]</span>
+      <span className="log-task">NOC Operator @ Antena Delta</span>
+      <p>Monitoreo de infraestructura crítica y gestión de redes TCP/IP[cite: 31, 35, 58].</p>
+      <p>Administración de virtualización y escalamiento de incidentes de alta severidad.</p>
+    </div>
+
+  </div>
+</section>
 
           <section className="about-block">
             <h3>STACK_TECNOLOGICO</h3>
             <div className="stack-grid">
               <div className="stack-col">
-                <h4>LANGUAGES</h4>
+                <h4>LENGUAJES DE PROGRAMACION</h4>
                 <ul>
-                  <li>C / C++ (Low-level optimization)</li>
-                  <li>Bash / Shell Scripting</li>
+                  <li>Python (FastApi / Flask)</li>
+                  <li>Bash / Shell Scripting / Perl</li>
                   <li>JavaScript (React / Node.js)</li>
                 </ul>
               </div>
@@ -64,7 +68,9 @@ const About = () => {
                 <ul>
                   <li>OpenBSD / FreeBSD / Debian</li>
                   <li>Docker / CI/CD Pipelines</li>
+                  <li>AWS / GCP / Azure</li>
                   <li>Networking & SysAdmin</li>
+                  
                 </ul>
               </div>
             </div>
@@ -72,7 +78,7 @@ const About = () => {
         </div>
 
         <footer className="about-footer">
-          <span>EB_SYS v2.0.26</span>
+          <span>Emmanuel_D_Breyaue_Porfolio v2.0.26</span>
           <span>Página 1</span>
         </footer>
       </div>

@@ -9,7 +9,7 @@ const Footer = () => {
             <div className="footer-top">
                 <div className="footer-top-left">
                     <div className="footer-logo-text">
-                        EB<span>_</span>SYS<span>.</span>LOG
+                        emmanuelbreyaue<span>.com</span>
                     </div>
                     <p className="footer-bio">
                         Ingeniero en Telecomunicaciones & DevOps basado en Buenos Aires. 
@@ -18,16 +18,7 @@ const Footer = () => {
                     </p>
                 </div>
                 
-                <div className="footer-top-right">
-                    <div className="footer-subscribe-box">
-                        <span className="prompt"># subscribe_to_newsletter:</span>
-                        <div className="footer-input-wrapper">
-                            <span className="user-prefix">guest@</span>
-                            <input type="email" placeholder="tu-email.com" aria-label="Email address" />
-                        </div>
-                        <button type="button" className="footer-subscribe-btn">EXEC --SUB</button>
-                    </div>
-                </div>
+               
             </div>
 
             <hr className="footer-divider" />
@@ -37,12 +28,10 @@ const Footer = () => {
                     <p>© {currentYear} Emmanuel D. Breyaue <span>//</span> STATUS: OPERATIONAL</p>
                 </div>
                 <div className="footer-bottom-right">
-                    <a href="#about" className="footer-link">DOCUMENTATION</a>
-                    <a href="#privacy" className="footer-link">PRIVACY_POLICY</a>
                     <div className="footer-socials">
                         <span className="social-label">CONNECT:</span>
-                        <a href="https://linkedin.com" className="footer-link">LINKEDIN</a>
-                        <a href="https://github.com" className="footer-link">GITHUB</a>
+                        <a href="https://linkedin.com/in/emmanueldbreyaue" className="footer-link"> LINKEDIN </a>
+                        <a href="https://github.com/nerdemma" className="footer-link"> GITHUB </a>
                     </div>
                 </div>
             </div>

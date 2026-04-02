@@ -35,7 +35,7 @@ const Hero = () => {
         
         <div className="terminal-body">
           <div className="terminal-line">
-            <span className="prompt">guest@eb-dev:~$</span>
+            <span className="prompt">guest@emmanuelbreyaue:~$</span>
             <span className="typing-text"> {text}</span>
             {!isTypingDone && <span className="cursor">|</span>}
           </div>
@@ -53,13 +53,13 @@ const Hero = () => {
                 <h2 className="role">Backend Developer & DevOps</h2>
                 
                 <div className="stats">
-  <p><span>BACKEND:</span> Desarrollo Robusto en C/C++, APIs de Alto Rendimiento</p>
-  <p><span>SISTEMAS:</span> Administración Unix/Linux & Hardening de Infraestructura</p>
-  <p><span>OBJETIVO:</span> Optimizar procesos y escalar sistemas críticos</p>
-</div>
+				<p><span>SOPORTE:</span> L1/L2/L3 - Resolución de Incidentes Críticos</p>
+				<p><span>SISTEMAS:</span> Especialista en Unix/Linux & Hardening de Servidores</p>
+				<p><span>DEVOPS:</span> Automatización de Infraestructura e Implementación de CI/CD</p>
+				</div>
 
                 <div className="terminal-actions">
-                  <a href="#contact" className="btn-nord">./contact.sh</a>
+                  <a href="#contact" className="btn-nord">./contacto.sh</a>
                 </div>
               </div>
             </div>
