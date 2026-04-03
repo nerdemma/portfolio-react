@@ -20,11 +20,11 @@ export const mywork_data = [
     },
     {
         w_name: "Sys Check",
-        w_desc: "Suite de scripts para diagnóstico proactivo de servidores (CPU, RAM, logs de seguridad).",
+        w_desc: "Script para diagnóstico proactivo de servidores (CPU, RAM, Almacenamiento).",
         w_tech: ["Bash", "KornShell", "Awk"],
         w_status: "COMPLETED",
         w_img: null,
-        w_link: "https://github.com/nerdemma/sys-check"
+        w_link: "https://github.com/nerdemma/syschk"
     },
     {
         w_name: "CloudWatcher-Lite",
