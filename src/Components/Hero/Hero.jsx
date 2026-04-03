@@ -50,7 +50,7 @@ const Hero = () => {
 
               <div className="terminal-text">
                 <h1>EMMANUEL D. BREYAUE</h1>
-                <h2 className="role">Backend Developer & DevOps</h2>
+                <h2 className="role">Infrastructure Analyst & DevOps Engineer</h2>
                 
                 <div className="stats">
 				<p><span>SOPORTE:</span> L1/L2/L3 - Resolución de Incidentes Críticos</p>

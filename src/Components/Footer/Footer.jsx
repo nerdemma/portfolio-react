@@ -12,8 +12,8 @@ const Footer = () => {
                         emmanuelbreyaue<span>.com</span>
                     </div>
                     <p className="footer-bio">
-                        Ingeniero en Telecomunicaciones & DevOps basado en Buenos Aires. 
-                        +6 años optimizando infraestructura crítica y sistemas Unix para 
+                        Analista de Infraestructura & DevOps basado en Buenos Aires. 
+                        +6 años optimizando infraestructura crítica y sistemas basados en Unix para 
                         empresas del sector tecnológico y logística.
                     </p>
                 </div>

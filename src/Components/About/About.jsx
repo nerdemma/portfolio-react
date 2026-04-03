@@ -48,6 +48,16 @@ const About = () => {
       <p>Monitoreo de infraestructura crítica y gestión de redes TCP/IP[cite: 31, 35, 58].</p>
       <p>Administración de virtualización y escalamiento de incidentes de alta severidad.</p>
     </div>
+    </div>
+<div className="experience-log">
+<h3>EDUCACION</h3>
+<div className="log-entry">
+  <span className="log-date">[2024 - 2029]</span>
+  <span className="log-task">Ingeniería en Telecomunicaciones — UNSAM</span>
+  <p><strong>Formación Técnica:</strong> Fundamentos de Redes, Electrónica Analógica/Digital y Medios de Transmisión.</p>
+  <p><strong>Sistemas y Equipamiento:</strong> Configuración de Equipamiento de Red, Análisis de Señales y Normativas ENACOM.</p>
+  <p><strong>Ciencias de la Ingeniería:</strong> Análisis Matemático, Física Experimental y Termodinámica.</p>
+</div>
 
   </div>
 </section>
