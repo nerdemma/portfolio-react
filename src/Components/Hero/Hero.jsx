@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Hero.css';
+/*fotografia de presentacion*/
 import fotoPerfil from '../../assets/emmanueldbreyaue.png';
 
 const Hero = () => {
