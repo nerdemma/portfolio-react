@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Hero.css';
-// Importa tu foto aquí (asegúrate de que la ruta sea correcta)
-import fotoPerfil from '../../assets/emmanueldbreyaue.png'; 
+import fotoPerfil from '../../assets/emmanueldbreyaue.png';
 
 const Hero = () => {
   const [text, setText] = useState('');
@@ -30,9 +29,9 @@ const Hero = () => {
             <span className="minimize"></span>
             <span className="maximize"></span>
           </div>
-          <div className="terminal-title">ebreyaue@nord-os: ~</div>
+          <div className="terminal-title">guest@emmanuelbreyaue.com: ~</div>
         </div>
-        
+
         <div className="terminal-body">
           <div className="terminal-line">
             <span className="prompt">guest@emmanuelbreyaue:~$</span>
@@ -50,13 +49,16 @@ const Hero = () => {
 
               <div className="terminal-text">
                 <h1>EMMANUEL D. BREYAUE</h1>
-                <h2 className="role">Infrastructure Analyst & DevOps Engineer</h2>
-                
+                <h2 className="role">Especialista en Soporte Técnico & Infraestructura IT</h2>
+
                 <div className="stats">
-				<p><span>SOPORTE:</span> L1/L2/L3 - Resolución de Incidentes Críticos</p>
-				<p><span>SISTEMAS:</span> Especialista en Unix/Linux & Hardening de Servidores</p>
-				<p><span>DEVOPS:</span> Automatización de Infraestructura e Implementación de CI/CD</p>
-				</div>
+                  <div className="stats">
+                    <p><span>EXPERIENCIA:</span> +6 años en infraestructura IT, mesa de ayuda y asistencia on-site/remota.</p>
+                    <p><span>ESPECIALIDAD:</span> Windows/Linux, soporte L2/L3, troubleshooting y administración de hardware/software.</p>
+                    <p><span>ENTORNOS:</span> Plantas industriales y oficinas corporativas con más de 600 activos IT bajo gestión.</p>
+                    <p><span>STACK TÉCNICO:</span> Windows Server, Active Directory, Microsoft 365, PowerShell, Bash, redes LAN/WiFi y VPN.</p>
+                  </div>
+                </div>
 
                 <div className="terminal-actions">
                   <a href="#contact" className="btn-nord">./contacto.sh</a>
