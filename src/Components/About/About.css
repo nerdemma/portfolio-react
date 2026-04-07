@@ -92,6 +92,28 @@
     color: #88c0d0;
   }
   
+.getcvresume {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #5e81ac; /* Nord10 */
+  color: #eceff4; /* Nord6 */
+  font-weight: bold;
+  text-transform: uppercase;
+  border: 2px solid #4c566a; /* Nord3 */
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.getcvresume:hover {
+  background-color: #88c0d0; /* Nord8 */
+  color: #2e3440; /* Nord0 */
+  transform: scale(1.05);
+}
+
+
   @media (max-width: 768px) {
     .about-section { padding: 60px 5%; }
     .stack-grid { grid-template-columns: 1fr; }

@@ -125,17 +125,19 @@ const About = () => {
                 </ul>
               </div>
             </div>
-          </section>
 
-
-        </div>
-
-        <footer className="about-footer">
-          <span>Emmanuel_D_Breyaue_Porfolio v2.0.26</span>
-          <span>Página 1</span>
-        </footer>
-      </div>
+              <a href="https://drive.google.com/file/d/1HCERz3vFl9QRlL4ly9-Nbu4mNOTLq2UI/view?usp=sharing" target="_blank" className="getcvresume">Ver CV En Español</a>
     </section>
+
+
+        </div >
+
+  <footer className="about-footer">
+    <span>Emmanuel_D_Breyaue_Porfolio v2.0.26</span>
+    <span>Página 1</span>
+  </footer>
+      </div >
+    </section >
   );
 };
 

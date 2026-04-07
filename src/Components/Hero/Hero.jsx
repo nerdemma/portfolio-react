@@ -35,7 +35,7 @@ const Hero = () => {
 
         <div className="terminal-body">
           <div className="terminal-line">
-            <span className="prompt">guest@emmanuelbreyaue:~$</span>
+            <span className="prompt">guest@emmanuelbreyaue.com:~$</span>
             <span className="typing-text"> {text}</span>
             {!isTypingDone && <span className="cursor">|</span>}
           </div>
